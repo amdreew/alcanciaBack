@@ -1,8 +1,10 @@
 package com.app.alcanciaback.infra.adapter.repository.bank;
 
+import com.app.alcanciaback.domain.model.Denomination;
 import com.app.alcanciaback.domain.model.PiggyBank;
 import com.app.alcanciaback.domain.port.PiggyBankPort;
 import com.app.alcanciaback.infra.adapter.repository.jpa.PiggyBankJpaRepository;
+import com.app.alcanciaback.infra.adapter.repository.mapper.DenominationMapper;
 import com.app.alcanciaback.infra.adapter.repository.mapper.PiggyBankMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,6 +20,9 @@ public class PiggyBankRepository implements PiggyBankPort {
 
     @Autowired
     private PiggyBankMapper mapper;
+
+    @Autowired
+    private DenominationMapper denominationMapper;
 
     @Override
     public PiggyBank save(PiggyBank piggyBank) {
@@ -40,5 +45,10 @@ public class PiggyBankRepository implements PiggyBankPort {
     @Override
     public void deleteAll() {
         this.repository.deleteAll();
+    }
+
+    @Override
+    public PiggyBank findByDenomination(Denomination denomination) {
+        return this.mapper.piggyBankEntityToPiggyBank(this.repository.findByDenomination(this.denominationMapper.denominationTodenominationEntity(denomination)));
     }
 }

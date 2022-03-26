@@ -1,5 +1,6 @@
 package com.app.alcanciaback.domain.port;
 
+import com.app.alcanciaback.domain.model.Denomination;
 import com.app.alcanciaback.domain.model.PiggyBank;
 
 import java.util.List;
@@ -9,4 +10,5 @@ public interface PiggyBankPort {
     PiggyBank findById(Long id);
     List<PiggyBank> getAll();
     void deleteAll();
+    PiggyBank findByDenomination(Denomination denomination);
 }

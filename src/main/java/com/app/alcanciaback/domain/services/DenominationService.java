@@ -20,4 +20,8 @@ public class DenominationService {
         return this.port.getAll();
     }
 
+    public Denomination findById(Long id) {
+        return this.port.findById(id);
+    }
+
 }

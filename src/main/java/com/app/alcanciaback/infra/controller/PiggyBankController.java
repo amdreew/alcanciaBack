@@ -1,5 +1,6 @@
 package com.app.alcanciaback.infra.controller;
 
+import com.app.alcanciaback.app.dto.DenominationDTO;
 import com.app.alcanciaback.app.dto.PiggyBankDTO;
 import com.app.alcanciaback.app.port.PiggyBankAppPort;
 import com.app.alcanciaback.infra.controller.config.ApiResponse;
@@ -22,8 +23,8 @@ public class PiggyBankController {
     }
 
     @PutMapping
-    public ApiResponse<PiggyBankDTO> update(@RequestBody PiggyBankDTO piggyBankDTO) {
-        return new ApiResponse<>(port.save(piggyBankDTO), null);
+    public ApiResponse<PiggyBankDTO> update(@RequestBody DenominationDTO denominationDTO) {
+        return new ApiResponse<>(port.save(denominationDTO.getId()), null);
     }
 
     @DeleteMapping

@@ -26,6 +26,11 @@ public class DenominationAppService implements DenominationAppPort {
     }
 
     @Override
+    public DenominationDTO findById(Long id) {
+        return this.mapper.denominationTodenominationDTO(this.service.findById(id));
+    }
+
+    @Override
     @Transactional
     public List<DenominationDTO> getAll() {
         return service.getAll()

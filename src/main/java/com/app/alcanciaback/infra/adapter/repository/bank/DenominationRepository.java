@@ -26,6 +26,11 @@ public class DenominationRepository implements DenominationPort {
     }
 
     @Override
+    public Denomination findById(Long id) {
+        return this.denominationMapper.denominationEntityToDenomination(this.jpaRepository.findById(id).orElse(null));
+    }
+
+    @Override
     public List<Denomination> getAll() {
         return jpaRepository.findAll()
                 .stream()

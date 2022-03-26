@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface DenominationPort {
     Denomination save(Denomination denomination);
+    Denomination findById(Long id);
     List<Denomination> getAll();
 }

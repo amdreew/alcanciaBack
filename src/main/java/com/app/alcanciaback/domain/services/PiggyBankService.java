@@ -1,5 +1,6 @@
 package com.app.alcanciaback.domain.services;
 
+import com.app.alcanciaback.domain.model.Denomination;
 import com.app.alcanciaback.domain.model.PiggyBank;
 import com.app.alcanciaback.domain.port.PiggyBankPort;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,9 @@ public class PiggyBankService {
 
     public PiggyBank findById(Long id) {
         return this.port.findById(id);
+    }
+
+    public PiggyBank findByDenomination(Denomination denomination) {
+        return this.port.findByDenomination(denomination);
     }
 }

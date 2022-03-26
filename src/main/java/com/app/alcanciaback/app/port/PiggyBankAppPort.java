@@ -1,12 +1,13 @@
 package com.app.alcanciaback.app.port;
 
+import com.app.alcanciaback.app.dto.DenominationDTO;
 import com.app.alcanciaback.app.dto.PiggyBankDTO;
-import com.app.alcanciaback.domain.model.PiggyBank;
 
 import java.util.List;
 
 public interface PiggyBankAppPort {
-    PiggyBankDTO save(PiggyBankDTO piggyBank);
+    PiggyBankDTO save(Long idDenomination);
     List<PiggyBankDTO> getAll();
     void deleteAll();
+    PiggyBankDTO findByDenomination(DenominationDTO denomination);
 }
